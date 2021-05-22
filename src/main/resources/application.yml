@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: admin
+    password: admin
+    url: jdbc:mysql://localhost:3306/devilery?serverTimezone=UTC
+    platform: mysql
+    initialization-mode: always
+    continue-on-error: true
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: create-drop
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL57Dialect
