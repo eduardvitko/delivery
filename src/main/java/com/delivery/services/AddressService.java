@@ -11,6 +11,7 @@ public interface AddressService {
    List<Address> getAllAdresses ();
    Address readById(int id);
   void deleteById(int id);
+  Address update(Address address);
 
 
 }

@@ -1,0 +1,80 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Create Baggage</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+</head>
+<style>
+    body {
+        background-color: ghostwhite;
+    }
+</style>
+
+<body>
+
+<h1 class="text-center">Create Baggage</h1>
+<div class="container">
+
+
+
+<form action="/baggage/add" method="post" th:object="${baggage}">
+    <div class="form group">
+        <label for="name_Baggage" class="control-label col-md-8"><strong>name_Baggage</strong></label>
+        <div class="col-md-4">
+            <input type="text" th:field="*{name_Baggage}" name="name_Baggage" class="form-control" id="name_Baggage"
+                   placeholder="name_Baggage">
+        </div>
+    </div>
+        <div class="form group">
+            <label for="height" class="control-label col-md-8"><strong>Height</strong></label>
+            <div class="col-md-4">
+                <input type="text" th:field="*{height}" name="height" class="form-control" id="height"
+                       placeholder="Enter Height">
+            </div>
+        </div>
+
+        <div class="form group">
+            <label for="weight" class="control-label col-md-8"><strong>Weight</strong></label>
+            <div class="col-md-4">
+                <input type="text" th:field="*{weight}" name=weight class="form-control" id="weight"
+                       placeholder="Enter Weight">
+
+            </div>
+        </div>
+        <div class="form group">
+            <label for="length" class="control-label col-md-8"><strong>Length</strong></label>
+            <div class="col-md-4">
+                <input type="text" th:field="*{length}" name="length" class="form-control" id="length"
+                       placeholder="Enter Length">
+            </div>
+        </div>
+    <div class="form group">
+        <label for="width" class="control-label col-md-8"><strong>Width</strong></label>
+        <div class="col-md-4">
+            <input type="text" th:field="*{width}" name="width" class="form-control" id="width"
+                   placeholder="Enter Width">
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">Add</button>
+    </form>
+
+</div>
+
+</body>

@@ -1,0 +1,78 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+      xmlns:wire="http://www.w3.org/1999/xhtml" xmlns:line-height="http://www.w3.org/1999/xhtml">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap Lesson</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+
+
+</head>
+<style>
+    body {
+        background-color: ghostwhite;
+    }
+</style>
+
+
+<div class="container bg-grey mt-5 p-3">
+
+
+    <h1>you are logged in as an USER</h1>
+
+
+    <table class="table table-hover table-sm">
+        <thead class="thead-light">
+        <tr>
+
+            <th>id</th>
+            <th>email</th>
+            <th>firstName</th>
+            <th>lastName</th>
+            <th>phoneNumber</th>
+
+            <th><a type="button" class="btn btn-success btn-lg mx-1" th:href="@{/registration-form}"><img
+                    src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>CREATE</a></th>
+        </tr>
+        </thead>
+
+
+        <tbody>
+        <tr th:each="user: ${users}">
+
+            <td th:text="${user.id}"></td>
+            <td th:text="${user.email}"></td>
+            <td th:text="${user.firstName}"></td>
+            <td th:text="${user.lastName}"></td>
+            <td th:text="${user.phoneNumber}"></td>
+
+                      <td><a type="button" th:href="@{/user/update/{email}(email=${user.email})}" class="btn btn-primary btn-sm mx-1"><img src="https://img.icons8.com/ios-filled/24/000000/edit--v2.png"/>Edit</a>
+                          <a th:href="@{/user/delete/{id}(id=${user.id})}"class="btn btn-danger btn-sm mx-1"><img src="https://img.icons8.com/color/24/000000/delete-sign--v1.png"/>Delete</a></td>
+
+
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
+
+

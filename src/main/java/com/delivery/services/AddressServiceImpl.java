@@ -6,6 +6,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.List;
+import java.util.Optional;
 
 @Component
 public class AddressServiceImpl implements AddressService {
@@ -23,12 +24,18 @@ public class AddressServiceImpl implements AddressService {
     }
 
     @Override
-    public void deleteById(int id) {
-        //return addressRepository.delete(id);
+    public void deleteById(int id){
+        Optional<Address> address = addressRepository.findById(id);
+        addressRepository.deleteById(id);
     }
 
     @Override
     public Address createAddress(Address address) {
+        return addressRepository.save(address);
+    }
+
+    @Override
+    public Address update(Address address) {
         return addressRepository.save(address);
     }
 }

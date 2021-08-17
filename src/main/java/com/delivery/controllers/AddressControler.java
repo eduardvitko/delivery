@@ -37,10 +37,23 @@ public class AddressControler {
         service.createAddress(address);
         return "redirect:/address/all";
     }
-   @GetMapping(value = "/address-delete/{id}")
+   @GetMapping(value = "/address/delete/{id}")
    public String deleteById(@PathVariable("id") int id) {
-   service.deleteById(id);
-       return  "redirect:/address/all";
+        ModelAndView modelAndView = new ModelAndView("address-delete");
+        service.deleteById(id);
+       return "redirect:/address/all";
+    }
+    @GetMapping(value = "/update/address/{id}")
+    ModelAndView updateAddressPage(@PathVariable("id") int id){
+        Address address = service.readById(id);
+        ModelAndView modelAndView = new ModelAndView("address-update");
+        modelAndView.addObject("address", address);
+        return  modelAndView;
+    }
+    @PostMapping(value = "/update/address-form")
+    String updateAddress(Address address){
+        service.update(address);
+        return "redirect:/address/all";
     }
 
 }

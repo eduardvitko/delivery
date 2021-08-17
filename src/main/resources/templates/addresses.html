@@ -46,10 +46,12 @@
             <td th:text="${address.street}"></td>
             <td th:text="${address.numberBranch}"></td>
 
+            <td class="d-flex justify-content-center">
+            <td><a  type="button" th:href="@{/address/delete/{id}(id=${address.id})}"class="btn btn-danger btn-sm mx-1">Delete</a></td>
+            <td><a  type="button" th:href="@{/update/address/{id}(id=${address.id})}"class="btn btn-primary btn-sm mx-1">Update</a></td>
 
 
-            <td> <button class="btn btn-primary" type="submit">delete</button></td>
-
+</td>
 
         </tr>
 
