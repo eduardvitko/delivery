@@ -54,11 +54,12 @@
 
 
         <tbody>
-       <tr th:each="personalCabinet: ${orderDtoList}">
+       <tr th:each="personalCabinet: ${personalCabinet}">
 
 
-      <td th:text="${personalCabinet.}"></td>
-           <td th:text="${personalCabinet.}"></td>-->
+
+      <td th:text="${personalCabinet.id}"></td>
+
 
 <!--            <td><a type="button" th:href="@{/user/update/{email}(email=${user.email})}" class="btn btn-primary btn-sm mx-1"><img src="https://img.icons8.com/ios-filled/24/000000/edit&#45;&#45;v2.png"/>Edit</a>-->
 <!--                <a th:href="@{/user/delete/{id}(id=${user.id})}"class="btn btn-danger btn-sm mx-1"><img src="https://img.icons8.com/color/24/000000/delete-sign&#45;&#45;v1.png"/>Delete</a></td>-->
