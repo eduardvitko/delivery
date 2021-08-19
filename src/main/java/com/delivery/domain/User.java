@@ -36,6 +36,6 @@ public class User {
     @OneToOne
     private Address address;
 
-    @OneToOne
-    private PersonalCabinet userCabinet;
+    @OneToMany
+    private Set<Bill> bills;
 }

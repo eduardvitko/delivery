@@ -19,6 +19,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.TreeSet;
 
 
 @SpringBootApplication
@@ -59,10 +60,10 @@ public class DeliveryApplication {
             addressRepository.save(address);
 
 
-            User user = new User(0, "Sidorov", "Petr", "380664123587", "sidorov@gmail.com", bCryptPasswordEncoder.encode("123"), new ArrayList<>(), address, personalCabinet);
+            User user = new User(0, "Sidorov", "Petr", "380664123587", "sidorov@gmail.com", bCryptPasswordEncoder.encode("123"), new ArrayList<>(), address, new TreeSet<>());
             user = userRepository.save(user);
             user.getRoles().add(role);
-            user.setUserCabinet(personalCabinet);
+            //user.setUserCabinet(personalCabinet);
             user.setAddress(address);
             userRepository.save(user);
         }

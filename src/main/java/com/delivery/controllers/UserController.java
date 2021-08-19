@@ -1,5 +1,6 @@
 package com.delivery.controllers;
 
+import com.delivery.domain.PersonalCabinet;
 import com.delivery.domain.User;
 import com.delivery.dto.UserDto;
 import com.delivery.dto.UserSignIn;
@@ -34,12 +35,12 @@ public class UserController {
         return "redirect:/user-all";
 
     }
+
     @GetMapping(value = "/personalCabinet/user{id}")
-    public ModelAndView personalCabinet(@PathVariable("id")int id){
+    public ModelAndView personalCabinet(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView("personalCabinet");
-        UserDto userDto = userService.findById(id);
-        modelAndView.addObject("personalCabinet",personalCabinet(id));
-        return  modelAndView;
+        modelAndView.addObject("personalCabinet", new PersonalCabinet());
+        return modelAndView;
 
     }
 
@@ -49,13 +50,10 @@ public class UserController {
         modelAndView.addObject("users", userService.usersAll());
         return modelAndView;
     }
-    @GetMapping(value = "/personalCabinet/")
-    public ModelAndView orderAll() {
-        ModelAndView modelAndView = new ModelAndView("personalCabinet");
-        modelAndView.addObject("personalCabinet", userService.usersAll());
-        return modelAndView;
-    }
-   @GetMapping(value = "/admin")
+
+
+
+    @GetMapping(value = "/admin")
     public ModelAndView admin() {
         ModelAndView modelAndView = new ModelAndView("admin");
         modelAndView.addObject("users", userService.usersAll());
@@ -69,6 +67,7 @@ public class UserController {
         modelAndView.addObject("userSignIn", new UserSignIn());
         return modelAndView;
     }
+
     @GetMapping(value = "/user/update/{email}")
     public ModelAndView updateUser(@PathVariable("email") String email) {
         UserDto user = userService.findUserByEmail(email);
@@ -76,26 +75,27 @@ public class UserController {
         modelAndView.addObject("UserSignUpRequest", new User());
         return modelAndView;
     }
+
     @PostMapping(value = "/user/update")
     public String UpdateProfile(@ModelAttribute UserDto user) {
-       userService.updateProfile(user);
+        userService.updateProfile(user);
         return "redirect:/user-all";
 
 
     }
+
     @GetMapping(value = "/user/delete/{id}")
     public String deleteById(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView("user-delete");
         userService.deleteById(id);
         return "redirect:/user-all";
     }
+
     @GetMapping(value = "/navigation")
     public ModelAndView startPage() {
         ModelAndView modelAndView = new ModelAndView("navigation");
         return modelAndView;
     }
-
-
 
 
 }

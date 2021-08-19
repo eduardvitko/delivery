@@ -49,11 +49,11 @@ public class UserServiesImpl implements UserService {
         UserDto userDto = businessMapper.toUserDto(userSignUpRequest);
         userDto.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
         userDto.getRoles().add(new RoleDto(0, "customer"));
-        userDto.setUserCabinet(new PersonalCabinetDTO(0, new ArrayList<>(), new TreeSet<>()));
+        //   userDto.setUserCabinet(new PersonalCabinetDTO(0, new ArrayList<>(), new TreeSet<>()));
 
         User currentUser = businessMapper.toUserEntity(userDto);
         addressRepository.save(currentUser.getAddress());
-        cabinetRepository.save(currentUser.getUserCabinet());
+        //  cabinetRepository.save(currentUser.getUserCabinet());
 
         currentUser = userRepository.save(currentUser);
         System.out.println(currentUser);
