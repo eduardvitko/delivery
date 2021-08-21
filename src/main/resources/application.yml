@@ -3,7 +3,7 @@ spring:
                                                   driver-class-name: com.mysql.cj.jdbc.Driver
                                                   username: admin
                                                   password: admin
-                                                  url: jdbc:mysql://localhost:3306/devilery?serverTimezone=UTC
+                                                  url: jdbc:mysql://localhost:3306/delivery?serverTimezone=UTC
                                                   platform: mysql
                                                   initialization-mode: always
                                                   continue-on-error: true

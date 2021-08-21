@@ -20,6 +20,8 @@ public class PersonalCabinet {
     private  int id;
     @OneToMany
     private List<Order>oreders;
+    @OneToMany
+    private Set<Bill>bills;
 
 
 

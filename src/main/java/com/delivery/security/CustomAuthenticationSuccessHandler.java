@@ -22,7 +22,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
                 response.sendRedirect("/navigation");
            }
             if("admin".equals(auth.getAuthority())) {
-                response.sendRedirect("/admin");
+                response.sendRedirect("/addresses/user/{id}");
             }
         }
     }

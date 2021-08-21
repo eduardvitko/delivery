@@ -87,7 +87,7 @@ public class MultiHttpSecurityConfig {
                     .disable()
                     .authorizeRequests()
                     //.antMatchers("/").permitAll()
-                    //.antMatchers("").permitAll()
+                    .antMatchers("/personalCabinet").permitAll()
                     .antMatchers("/registration-form").permitAll()
                     // .antMatchers("/user-all").permitAll()
                     //.antMatchers("/form-login").permitAll()

@@ -1,5 +1,6 @@
 package com.delivery.controllers;
 
+import com.delivery.domain.Address;
 import com.delivery.domain.PersonalCabinet;
 import com.delivery.domain.User;
 import com.delivery.dto.UserDto;
@@ -35,15 +36,27 @@ public class UserController {
         return "redirect:/user-all";
 
     }
-
-    @GetMapping(value = "/personalCabinet/user{id}")
-    public ModelAndView personalCabinet(@PathVariable("id") int id) {
+//
+//    @GetMapping(value = "/personalCabinet/user/{id}")
+//    public ModelAndView personalCabinetUser(@PathVariable("id") int id) {
+//        ModelAndView modelAndView = new ModelAndView("personalCabinet");
+//        modelAndView.addObject("personalCabinet", new PersonalCabinet());
+//        return modelAndView;
+//
+//    }
+    @GetMapping(value = "/personalCabinet")
+    public  ModelAndView personalCabinet(){
         ModelAndView modelAndView = new ModelAndView("personalCabinet");
         modelAndView.addObject("personalCabinet", new PersonalCabinet());
         return modelAndView;
-
     }
 
+  @GetMapping(value = "/adresses/user/{id}")
+public ModelAndView userAddress(@PathVariable("id")int id){
+        ModelAndView modelAndView = new ModelAndView("addresses");
+      modelAndView.addObject("addresses", new Address());
+      return modelAndView;
+    }
     @GetMapping(value = "/user-all")
     public ModelAndView usersAll() {
         ModelAndView modelAndView = new ModelAndView("user-all");
