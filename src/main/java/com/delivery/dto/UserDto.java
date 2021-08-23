@@ -1,9 +1,7 @@
 package com.delivery.dto;
 
 import com.delivery.domain.Bill;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 import lombok.experimental.Accessors;
 
 import javax.persistence.OneToMany;
@@ -13,6 +11,8 @@ import java.util.List;
 import java.util.Set;
 
 @Data
+@Getter
+@Setter
 @Accessors(chain = true)
 @AllArgsConstructor
 @NoArgsConstructor
@@ -33,7 +33,7 @@ public class UserDto {
 
     private AddressDto addressDto;
 
-    private Set<BillDto> bills;
+    //private Set<BillDto> billDtos;
 
 }
 

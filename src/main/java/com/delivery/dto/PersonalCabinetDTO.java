@@ -12,18 +12,18 @@ import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
 
-@Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Accessors(chain = true)
+//@Data
+//@AllArgsConstructor
+//@NoArgsConstructor
+//@Accessors(chain = true)
 
-public class PersonalCabinetDTO {
+//public class PersonalCabinetDTO {
 
-    private  int id;
+//    private  int id;
+//
+//    private  List<OrderDto> oreders;
+//
+//    private Set<BillDto> bills;
 
-    private  List<OrderDto> oreders;
 
-    private Set<BillDto> bills;
-
-
-}
+//}

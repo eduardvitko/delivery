@@ -18,8 +18,8 @@ public class PersonalCabinet {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private  int id;
-    @OneToMany
-    private List<Order>oreders;
+//    @OneToMany
+//    private List<Order>oreders;
 
 
 

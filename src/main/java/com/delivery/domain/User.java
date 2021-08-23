@@ -8,6 +8,8 @@ import java.util.List;
 import java.util.Set;
 
 @Data
+@Setter
+@Getter
 @AllArgsConstructor
 @NoArgsConstructor
 @Accessors(chain = true)
@@ -36,6 +38,6 @@ public class User {
     @OneToOne
     private Address address;
 
-    @OneToMany
-    private Set<Bill> bills;
+//   @OneToMany
+//   private Set<Bill> bills;
 }
