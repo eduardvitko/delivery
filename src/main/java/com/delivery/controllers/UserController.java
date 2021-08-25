@@ -1,6 +1,6 @@
 package com.delivery.controllers;
 
-import com.delivery.domain.PersonalCabinet;
+
 import com.delivery.domain.User;
 import com.delivery.dto.UserDto;
 import com.delivery.dto.UserSignIn;
@@ -32,14 +32,14 @@ public class UserController {
     @PostMapping(value = "/registration-form")
     public String signUp(@ModelAttribute UserSignUpRequest userSignUpRequest, BindingResult result) {
         userService.signup(userSignUpRequest);
-        return "redirect:/user-all";
+        return "redirect:/navigation";
 
     }
 
-    @GetMapping(value = "/personalCabinet/user{id}")
+    @GetMapping(value = "/personalCabinet/user/{id}")
     public ModelAndView personalCabinet(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView("personalCabinet");
-        modelAndView.addObject("personalCabinet", new PersonalCabinet());
+        modelAndView.addObject("users", userService.findById(id));
         return modelAndView;
 
     }

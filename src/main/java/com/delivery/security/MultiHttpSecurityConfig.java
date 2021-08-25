@@ -41,7 +41,7 @@ public class MultiHttpSecurityConfig {
                     .antMatcher("/")
                     .authorizeRequests()
                     //.antMatchers("/registration-form").permitAll()
-                    //.antMatchers("/user-all").permitAll()
+                    //.antMatchers("/navigation").permitAll()
                     // .antMatchers("").permitAll()
                     .anyRequest()
                     .authenticated()

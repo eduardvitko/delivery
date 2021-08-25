@@ -44,8 +44,8 @@ public class BusinessMapper {
                 .setPassword(user.getPassword())
                 .setPhoneNumber(user.getPhoneNumber())
                 .setAddress(toAddressEntity(user.getAddressDto()))
-                .setRoles(user.getRoles().stream().map(roleDto -> roleRepository.findByRole(roleDto.getRole())).collect(Collectors.toList()));
-              // .setBills(user.getBillDtos().stream().map(this::toBillEntity).collect(Collectors.toSet()));
+                .setRoles(user.getRoles().stream().map(roleDto -> roleRepository.findByRole(roleDto.getRole())).collect(Collectors.toList()))
+              .setBills(user.getBillDtos().stream().map(this::toBillEntity).collect(Collectors.toSet()));
 
 
     }
@@ -127,11 +127,11 @@ public class BusinessMapper {
     }
 
 //    public PersonalCabinetDTO toPersonCabinetDto(PersonalCabinet personalCabinet) {
-//        return new PersonalCabinetDTO();
-                //.setId(personalCabinet.getId());
-        //.setBills(personalCabinet.getBills().stream().map(this::toBillDto).collect(Collectors.toSet()))
-        //.setOreders(personalCabinet.getOreders().stream().map(this::toOrderDto).collect(Collectors.toList()));
-   // }
+//        return new PersonalCabinetDTO()
+//                .setId(personalCabinet.getId());
+//       // .setBills(personalCabinet.getBills().stream().map(this::toBillDto).collect(Collectors.toSet()))
+//        //.setOreders(personalCabinet.getOreders().stream().map(this::toOrderDto).collect(Collectors.toList()));
+//    }
 
     //    public List<BillDto> getbillDtoList(List<Bill> bilils){
 //        List<BillDto> billList = new ArrayList<>();
@@ -149,11 +149,11 @@ public class BusinessMapper {
 //        return billList;
 //    }
 //    public PersonalCabinet toPersonCabinetEntity(PersonalCabinetDTO personalCabinet) {
-//        return new PersonalCabinet();
-                //.setId(personalCabinet.getId());
-
-        //.setOreders(personalCabinet.getOreders().stream().map(this::toOrderEntity).collect(Collectors.toList()));
-   // }
+//        return new PersonalCabinet()
+//                .setId(personalCabinet.getId());
+//
+//        //.setOreders(personalCabinet.getOreders().stream().map(this::toOrderEntity).collect(Collectors.toList()));
+//    }
 
     public PaymentDto toPaymentDto(Payment payment) {
         return new PaymentDto()
@@ -241,8 +241,8 @@ public class BusinessMapper {
                 .setPassword(userSignUpRequest.getFirstPassword())
                 .setPhoneNumber(userSignUpRequest.getPhone())
                 .setEmail(userSignUpRequest.getEmail())
-                .setAddressDto(new AddressDto(0, "", "", 0));
-                //.setBillDtos(new TreeSet<>());
+                .setAddressDto(new AddressDto(0, "", "", 0))
+                .setBillDtos(new TreeSet<>());
 
     }
 

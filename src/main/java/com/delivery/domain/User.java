@@ -38,6 +38,6 @@ public class User {
     @OneToOne
     private Address address;
 
-//   @OneToMany
-//   private Set<Bill> bills;
+   @OneToMany
+   private Set<Bill> bills;
 }

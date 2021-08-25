@@ -11,14 +11,14 @@ import lombok.experimental.Accessors;
 import javax.persistence.*;
 import java.util.List;
 import java.util.Set;
-
+//
 //@Data
 //@AllArgsConstructor
 //@NoArgsConstructor
 //@Accessors(chain = true)
-
+////
 //public class PersonalCabinetDTO {
-
+//
 //    private  int id;
 //
 //    private  List<OrderDto> oreders;

@@ -33,7 +33,7 @@ public class UserDto {
 
     private AddressDto addressDto;
 
-    //private Set<BillDto> billDtos;
+    private Set<BillDto> billDtos;
 
 }
 

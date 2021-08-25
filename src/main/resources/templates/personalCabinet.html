@@ -34,7 +34,7 @@
 <div class="container bg-grey mt-5 p-3">
 
 
-    <h1>you are logged in as an USER_CABINET</h1>
+    <h1>Welcome to UserCabinet</h1>
 
 
     <table class="table table-hover table-sm">
@@ -42,9 +42,10 @@
         <tr>
 
 
+            <th>id</th>
             <th>firstName</th>
             <th>lastName</th>
-           // <th>orders</th>
+<!--            <th>bills</th>-->
 
 
             <th><a type="button" class="btn btn-success btn-lg mx-1" th:href="@{/registration-form}"><img
@@ -54,12 +55,14 @@
 
 
         <tbody>
-       <tr th:each="personalCabinet: ${personalCabinet}">
+       <tr th:each="user: ${users}">
 
 
 
-      <td th:text="${personalCabinet.id}"></td>
-      <td th:text="${personalCabinet.oreders}"></td>
+      <td th:text="${users.id}"></td>
+      <td th:text="${users.firstName}"></td>
+      <td th:text="${users.lastName}"></td>
+<!--      <td th:text="${users.billDtos}"></td>-->
 
 
 <!--            <td><a type="button" th:href="@{/user/update/{email}(email=${user.email})}" class="btn btn-primary btn-sm mx-1"><img src="https://img.icons8.com/ios-filled/24/000000/edit&#45;&#45;v2.png"/>Edit</a>-->

@@ -1,7 +1,7 @@
 package com.delivery.services;
 
 import com.delivery.domain.Address;
-import com.delivery.domain.PersonalCabinet;
+
 import com.delivery.domain.Role;
 import com.delivery.domain.User;
 import com.delivery.dto.*;
@@ -10,7 +10,7 @@ import com.delivery.exeption.EntityType;
 import com.delivery.exeption.ExceptionType;
 import com.delivery.maper.BusinessMapper;
 import com.delivery.respositories.AddressRepository;
-import com.delivery.respositories.PersonalCabinetRepository;
+//import com.delivery.respositories.PersonalCabinetRepository;
 import com.delivery.respositories.RoleRepository;
 import com.delivery.respositories.UserRepository;
 import org.modelmapper.ModelMapper;
@@ -39,8 +39,8 @@ public class UserServiesImpl implements UserService {
     private UserRepository userRepository;
     @Autowired
     private BusinessMapper businessMapper;
-    @Autowired
-    private PersonalCabinetRepository cabinetRepository;
+    //@Autowired
+   // private PersonalCabinetRepository cabinetRepository;
     @Autowired
     private AddressRepository addressRepository;
 
