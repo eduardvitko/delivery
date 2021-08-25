@@ -14,6 +14,7 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.TreeSet;
 
 
@@ -48,7 +49,7 @@ public class DeliveryApplication {
             Address address = new Address(0, "Dnepr", "Nmaar", 2);
             addressRepository.save(address);
 
-            User user = new User(0, "Sidorov", "Petr", "380664123587", "ivanov@gmail.com", bCryptPasswordEncoder.encode("123"), new ArrayList<>(), address, new TreeSet<>());
+            User user = new User(0, "Sidorov", "Petr", "380664123587", "ivanov@gmail.com", bCryptPasswordEncoder.encode("123"), new ArrayList<>(), address, new TreeSet<>(),new HashSet<>());
             user = userRepository.save(user);
             user.getRoles().add(role);
             userRepository.save(user);
@@ -58,7 +59,7 @@ public class DeliveryApplication {
             addressRepository.save(address1);
 
 
-            User user1 = new User(0, "Vitko", "Eduard", "97665555", "eduardvitko@gmail.com", bCryptPasswordEncoder.encode("test"), new ArrayList<>(), address1, new TreeSet<>());
+            User user1 = new User(0, "Vitko", "Eduard", "97665555", "eduardvitko@gmail.com", bCryptPasswordEncoder.encode("test"), new ArrayList<>(), address1, new TreeSet<>(), new HashSet<>());
             user1 = userRepository.save(user1);
             user1.getRoles().add(role2);
             userRepository.save(user1);

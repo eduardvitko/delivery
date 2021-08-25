@@ -40,4 +40,7 @@ public class User {
 
    @OneToMany
    private Set<Bill> bills;
+
+    @OneToMany
+   private Set<Order> orders;
 }

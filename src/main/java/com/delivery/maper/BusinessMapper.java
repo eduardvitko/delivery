@@ -45,7 +45,8 @@ public class BusinessMapper {
                 .setPhoneNumber(user.getPhoneNumber())
                 .setAddress(toAddressEntity(user.getAddressDto()))
                 .setRoles(user.getRoles().stream().map(roleDto -> roleRepository.findByRole(roleDto.getRole())).collect(Collectors.toList()))
-              .setBills(user.getBillDtos().stream().map(this::toBillEntity).collect(Collectors.toSet()));
+              .setBills(user.getBillDtos().stream().map(this::toBillEntity).collect(Collectors.toSet()))
+                .setOrders(user.getOrderDtos().stream().map(this::toOrderEntity).collect(Collectors.toSet()));
 
 
     }
@@ -242,7 +243,8 @@ public class BusinessMapper {
                 .setPhoneNumber(userSignUpRequest.getPhone())
                 .setEmail(userSignUpRequest.getEmail())
                 .setAddressDto(new AddressDto(0, "", "", 0))
-                .setBillDtos(new TreeSet<>());
+                .setBillDtos(new TreeSet<>())
+                .setOrderDtos(new TreeSet<>());
 
     }
 
@@ -251,8 +253,8 @@ public class BusinessMapper {
         return userList.stream().map(user -> toUserDto(user)).collect(Collectors.toList());
     }
 
-    public List<OrderDto> orderDtoList(List<Order> oreders) {
-        return oreders.stream().map(order -> toOrderDto(order)).collect(Collectors.toList());
+    public Set<OrderDto> orderDtoSet(Set<Order> orders) {
+        return orders.stream().map(order -> toOrderDto(order)).collect(Collectors.toSet());
     }
 
     public Set<BillDto> billDtoList(Set<Bill> bills) {

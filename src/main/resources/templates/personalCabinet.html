@@ -46,6 +46,7 @@
             <th>firstName</th>
             <th>lastName</th>
             <th>bills</th>
+            <th>orders</th>
 
 
             <th><a type="button" class="btn btn-success btn-lg mx-1" th:href="@{/registration-form}"><img
@@ -63,6 +64,7 @@
       <td th:text="${users.firstName}"></td>
       <td th:text="${users.lastName}"></td>
       <td th:text="${users.billDtos}"></td>
+      <td th:text="${users.orderDtos}"></td>
 
 
 <!--            <td><a type="button" th:href="@{/user/update/{email}(email=${user.email})}" class="btn btn-primary btn-sm mx-1"><img src="https://img.icons8.com/ios-filled/24/000000/edit&#45;&#45;v2.png"/>Edit</a>-->
