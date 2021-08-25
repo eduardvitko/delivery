@@ -258,8 +258,8 @@ public class BusinessMapper {
     }
 
     public Set<BillDto> billDtoList(Set<Bill> bills) {
-
         return bills.stream().map(bill -> toBillDto(bill)).collect(Collectors.toSet());
     }
+
 }
 

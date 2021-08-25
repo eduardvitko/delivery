@@ -27,6 +27,7 @@ public class PageConfig implements WebMvcConfigurer {
         registry.addViewController("/user/delete").setViewName("user-delete");
         registry.addViewController("/personalCabinet").setViewName("personalCabinet");
         registry.addViewController("/navigation").setViewName("navigation");
+        registry.addViewController("/order-create").setViewName("order-create");
 
 
 
