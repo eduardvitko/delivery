@@ -6,6 +6,8 @@ import com.delivery.dto.UserDto;
 import com.delivery.dto.UserSignIn;
 import com.delivery.dto.UserSignUpRequest;
 import com.delivery.services.UserService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -32,14 +34,16 @@ public class UserController {
     @PostMapping(value = "/registration-form")
     public String signUp(@ModelAttribute UserSignUpRequest userSignUpRequest, BindingResult result) {
         userService.signup(userSignUpRequest);
-        return "redirect:/navigation";
+        return "redirect:/form-login";
 
     }
 
-    @GetMapping(value = "/personalCabinet/user/{id}")
-    public ModelAndView personalCabinet(@PathVariable("id") int id) {
+    @GetMapping(value = "/personalCabinet")
+    public ModelAndView personalCabinet() {
         ModelAndView modelAndView = new ModelAndView("personalCabinet");
-        modelAndView.addObject("users", userService.findById(id));
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserDto userDto = userService.findUserByEmail(auth.getName());
+        modelAndView.addObject("users", userDto);
         return modelAndView;
 
     }
@@ -50,7 +54,6 @@ public class UserController {
         modelAndView.addObject("users", userService.usersAll());
         return modelAndView;
     }
-
 
 
     @GetMapping(value = "/admin")

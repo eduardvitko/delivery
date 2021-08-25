@@ -19,7 +19,7 @@ public class CustomAuthenticationSuccessHandler implements AuthenticationSuccess
         response.setStatus(HttpServletResponse.SC_OK);
         for (GrantedAuthority auth : authentication.getAuthorities()) {
             if ("customer".equals(auth.getAuthority())) {
-                response.sendRedirect("/navigation");
+                response.sendRedirect("/personalCabinet");
            }
             if("admin".equals(auth.getAuthority())) {
                 response.sendRedirect("/admin");
