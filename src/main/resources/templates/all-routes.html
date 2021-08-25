@@ -1,0 +1,78 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Bootstrap Lesson</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+</head>
+
+<body class="bg-secondary">
+
+<div class="container bg-warning mt-5 p-3">
+
+
+    <table class="table table-hover table-sm">
+        <thead class="thead-light">
+
+
+        <tr>
+            <th scope="col">number</th>
+            <th scope="col">fromAddress city</th>
+            <th scope="col">fromAddress street</th>
+            <th scope="col">fromAddress numberBranch</th>
+            <th scope="col">toAddress city</th>
+            <th scope="col">toAddress street</th>
+            <th scope="col">toAddress numberBranch</th>
+            <th scope="col">distance</th>
+            <th scope="col">duration</th>
+
+
+        </tr>
+        </thead>
+        <tbody>
+
+        <tr th:each="routes : ${routesList}">
+            <td th:text="${routes.number}"></td>
+            <td th:text="${routes.fromAddress.city}"></td>
+            <td th:text="${routes.fromAddress.street}"></td>
+            <td th:text="${routes.fromAddress.numberBranch}"></td>
+            <td th:text="${routes.toAddress.city}"></td>
+            <td th:text="${routes.toAddress.street}"></td>
+            <td th:text="${routes.toAddress.numberBranch}"></td>
+            <td th:text="${routes.distance}"></td>
+            <td th:text="${routes.duration}"></td>
+
+
+            <td class="d-flex justify-content-center">
+<!--            <td><a  type="button" th:href="@{/address/delete/{id}(id=${address.id})}"class="btn btn-danger btn-sm mx-1">Delete</a></td>-->
+<!--            <td><a  type="button" th:href="@{/update/address/{id}(id=${address.id})}"class="btn btn-primary btn-sm mx-1">Update</a></td>-->
+
+
+            </td>
+
+        </tr>
+
+        </tbody>
+    </table>
+
+</div>
+</body>
+</html>
+
+

@@ -43,24 +43,6 @@
             </div>
         </div>
 
-                <th><a type="button" class="btn btn-success btn-lg mx-1" th:href="@{/baggage/add}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>ADD BAGGAGE</a></th>
-
-
-        <div class="form group">
-            <label for="order_price" class="control-label col-md-8"><strong>order_price</strong></label>
-            <div class="col-md-4">
-                <input type="text" th:field="*{order_price}" name=weight class="form-control" id="order_price"
-                       placeholder=" Enter order_price">
-
-            </div>
-        </div>
-        <div class="form group">
-            <label for="route" class="control-label col-md-8"><strong>route</strong></label>
-            <div class="col-md-4">
-                <input type="text" th:field="*{route}" name="route" class="form-control" id="route"
-                       placeholder="Enter route">
-            </div>
-        </div>
         <div class="form group">
             <label for="shippet_time" class="control-label col-md-8"><strong>shippet_time</strong></label>
             <div class="col-md-4">
@@ -77,6 +59,112 @@
             </div>
 
         </div>
+        <div class="form group">
+            <label for="order_price" class="control-label col-md-8"><strong>order_price</strong></label>
+            <div class="col-md-4">
+                <input type="text" th:field="*{order_price}" name=weight class="form-control" id="order_price"
+                       placeholder=" Enter order_price">
+
+            </div>
+        </div>
+
+        <form action="/baggage/add" method="post" th:object="${baggage}">
+            <div class="form group">
+                <label for="name_Baggage" class="control-label col-md-8"><strong>name_Baggage</strong></label>
+                <div class="col-md-4">
+                    <input type="text" th:field="*{name_Baggage}" name="name_Baggage" class="form-control" id="name_Baggage"
+                           placeholder="name_Baggage">
+                </div>
+            </div>
+            <div class="form group">
+                <label for="height" class="control-label col-md-8"><strong>Height</strong></label>
+                <div class="col-md-4">
+                    <input type="text" th:field="*{height}" name="height" class="form-control" id="height"
+                           placeholder="Enter Height">
+                </div>
+            </div>
+
+            <div class="form group">
+                <label for="weight" class="control-label col-md-8"><strong>Weight</strong></label>
+                <div class="col-md-4">
+                    <input type="text" th:field="*{weight}" name=weight class="form-control" id="weight"
+                           placeholder="Enter Weight">
+
+                </div>
+            </div>
+            <div class="form group">
+                <label for="length" class="control-label col-md-8"><strong>Length</strong></label>
+                <div class="col-md-4">
+                    <input type="text" th:field="*{length}" name="length" class="form-control" id="length"
+                           placeholder="Enter Length">
+                </div>
+            </div>
+            <div class="form group">
+                <label for="width" class="control-label col-md-8"><strong>Width</strong></label>
+                <div class="col-md-4">
+                    <input type="text" th:field="*{width}" name="width" class="form-control" id="width"
+                           placeholder="Enter Width">
+                </div>
+            </div>
+
+
+
+
+        <form action="/routes-create" method="post" th:object="${routes}">
+            <div class="form group">
+                <label for="number" class="control-label col-md-8"><strong>number</strong></label>
+                <div class="col-md-4">
+                    <input type="text" th:field="*{number}" name="number" class="form-control" id="number"
+                           placeholder="Enter number">
+                </div>
+            </div>
+
+
+
+
+            <div class="form group">
+                <label class="control-label col-md-8"><strong>fromAddress</strong></label>
+                <div class="col-md-4">
+                    <input type="text" th:field="*{fromAddress.city}" name=fromAddress class="form-control" id="city"
+                           placeholder=" Enter city">
+                    <input type="text" th:field="*{fromAddress.street}" name=fromAddress class="form-control" id="street"
+                           placeholder=" Enter street">
+                    <input type="text" th:field="*{fromAddress.numberBranch}" name=fromAddress class="form-control" id="numberBranch"
+                           placeholder=" Enter numberBranch">
+
+                </div>
+            </div>
+            <div class="form group">
+                <label class="control-label col-md-8"><strong>toAddress</strong></label>
+                <div class="col-md-4">
+                    <input type="text" th:field="*{toAddress.city}" name=fromAddress class="form-control" id="cities"
+                           placeholder=" Enter city">
+                    <input type="text" th:field="*{toAddress.street}" name=fromAddress class="form-control" id="streets"
+                           placeholder=" Enter street">
+                    <input type="text" th:field="*{toAddress.numberBranch}" name=fromAddress class="form-control" id="numberBranchs"
+                           placeholder=" Enter numberBranch">
+
+                </div>
+            </div>
+            <div class="form group">
+                <label for="distance" class="control-label col-md-8"><strong>distance</strong></label>
+                <div class="col-md-4">
+                    <input type="text" th:field="*{distance}" name="distance" class="form-control" id="distance"
+                           placeholder="Enter distance">
+                </div>
+            </div>
+            <div class="form group">
+                <label for="duration" class="control-label col-md-8"><strong>duration</strong></label>
+                <div class="col-md-4">
+                    <input type="text" th:field="*{duration}" name="duration" class="form-control" id="duration"
+                           placeholder="Enter duration">
+                </div>
+            </div>
+
+
+
+        </form>
+
 
         <button class="btn btn-primary" type="submit">Add</button>
     </form>

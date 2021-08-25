@@ -28,6 +28,8 @@ public class PageConfig implements WebMvcConfigurer {
         registry.addViewController("/personalCabinet").setViewName("personalCabinet");
         registry.addViewController("/navigation").setViewName("navigation");
         registry.addViewController("/order-create").setViewName("order-create");
+        registry.addViewController("/routes-create").setViewName("routes-create");
+        registry.addViewController("/all-routes").setViewName("all-routes");
 
 
 
