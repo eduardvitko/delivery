@@ -3,7 +3,6 @@ package com.delivery;
 import com.delivery.domain.*;
 
 import com.delivery.respositories.AddressRepository;
-import com.delivery.respositories.PersonalCabinetRepository;
 import com.delivery.respositories.RoleRepository;
 import com.delivery.respositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,8 +14,6 @@ import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import java.util.ArrayList;
-import java.util.List;
-import java.util.Set;
 import java.util.TreeSet;
 
 
@@ -35,31 +32,23 @@ public class DeliveryApplication {
         @Autowired
         RoleRepository roleRepository;
         @Autowired
-        PersonalCabinetRepository personalCabinetRepository;
-        @Autowired
         AddressRepository addressRepository;
         @Resource
         BCryptPasswordEncoder bCryptPasswordEncoder;
 
         @Override
         public void run(String... args) throws Exception {
-            Role role = new Role(1, "admin");
-            Role role1 = new Role(2, "user");
-            Role role2 = new Role(3, "customer");
+            Role role = new Role(0, "admin");
+            Role role1 = new Role(0, "uer");
+            Role role2 = new Role(0, "customer");
             roleRepository.save(role);
             roleRepository.save(role1);
             roleRepository.save(role2);
 
-
-
-
-            Address address = new Address(0, "Nikopol", "Nmaar", 2);
+            Address address = new Address(0, "Dnepr", "Nmaar", 2);
             addressRepository.save(address);
 
-
-
-
-            User user = new User(0, "Sidorov", "Petr", "380664123587", "ivanov@gmail.com", bCryptPasswordEncoder.encode("456"), new ArrayList<>(), address);
+            User user = new User(0, "Sidorov", "Petr", "380664123587", "ivanov@gmail.com", bCryptPasswordEncoder.encode("123"), new ArrayList<>(), address, new TreeSet<>());
             user = userRepository.save(user);
             user.getRoles().add(role);
 
