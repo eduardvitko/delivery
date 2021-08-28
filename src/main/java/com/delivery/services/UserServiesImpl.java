@@ -39,8 +39,7 @@ public class UserServiesImpl implements UserService {
     private UserRepository userRepository;
     @Autowired
     private BusinessMapper businessMapper;
-    //@Autowired
-   // private PersonalCabinetRepository cabinetRepository;
+
     @Autowired
     private AddressRepository addressRepository;
 

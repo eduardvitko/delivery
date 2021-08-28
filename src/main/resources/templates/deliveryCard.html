@@ -26,7 +26,7 @@
 </head>
 <style>
     body {
-        background-color: ghostwhite;
+        background-color:  ghostwhite;
     }
 </style>
 
@@ -34,48 +34,39 @@
 <div class="container bg-grey mt-5 p-3">
 
 
-    <h1>Welcome to UserCabinet</h1>
+
+
+
 
 
     <table class="table table-hover table-sm">
         <thead class="thead-light">
         <tr>
-
-
             <th>id</th>
-            <th>firstName</th>
-            <th>lastName</th>
-            <th>bills</th>
-            <th>orders</th>
-<!--            <th>deliveryCard</th>-->
+            <th>Baggages </th>
 
 
-            <th><a type="button" class="btn btn-success btn-lg mx-1" th:href="@{/deliveryCard}"><img
-                    src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>Delivery Card</a></th>
+            <th><a type="button" class="btn btn-success btn-lg mx-1" th:href="@{/baggage/add}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>CREATE</a></th>
+
         </tr>
         </thead>
 
 
+
         <tbody>
-       <tr th:each="user: ${users}">
+        <tr th:each="deliveryCard: ${deliveryCard}">
+
+            <td th:text="${deliveryCard.id}"></td>
+            <td th:text="${deliveryCard.baggages}"></td>
 
 
 
-      <td th:text="${users.id}"></td>
-      <td th:text="${users.firstName}"></td>
-      <td th:text="${users.lastName}"></td>
-      <td th:text="${users.billDtos}"></td>
-      <td th:text="${users.orderDtos}"></td>
-<!--      <td th:text="${users.deliveryCard}"></td>-->
-
-
-<!--            <td><a type="button" th:href="@{/user/update/{email}(email=${user.email})}" class="btn btn-primary btn-sm mx-1"><img src="https://img.icons8.com/ios-filled/24/000000/edit&#45;&#45;v2.png"/>Edit</a>-->
-<!--                <a th:href="@{/user/delete/{id}(id=${user.id})}"class="btn btn-danger btn-sm mx-1"><img src="https://img.icons8.com/color/24/000000/delete-sign&#45;&#45;v1.png"/>Delete</a></td>-->
 
 
         </tr>
 
         </tbody>
+        <th><a type="button" class="btn btn-warning btn-lg mx-1" th:href="@{/baggage-create}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>add Baggage</a></th>
     </table>
 
 </div>

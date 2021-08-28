@@ -22,13 +22,13 @@ public class OrderDto {
 
     private  int numberOrder;
 
-    private List<BaggageDto> baggages;
-
     private  double order_price;
-
-    private RoutesDto route;
 
     private LocalDateTime shippet_time;
 
     private LocalDateTime delivery_time;
+
+    private List<BaggageDto> baggages;
+
+    private RoutesDto route;
 }

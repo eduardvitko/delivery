@@ -108,6 +108,17 @@ public class BusinessMapper {
 //        return baggageList;
 //    }
 
+    public DeliveryCard toDeliveryCardEntity(DeliveryCardDto cardDto){
+        return new DeliveryCard()
+                .setId(cardDto.getId())
+                .setBaggages(baggages(cardDto.getBaggageDtos()));
+    }
+    public DeliveryCardDto deliveryCardDto(DeliveryCard card){
+        return  new DeliveryCardDto()
+                .setId(card.getId())
+                .setBaggageDtos(baggageDtoList(card.getBaggages()));
+    }
+
 
     public BillDto toBillDto(Bill bill) {
         return new BillDto()
@@ -259,6 +270,12 @@ public class BusinessMapper {
 
     public Set<BillDto> billDtoList(Set<Bill> bills) {
         return bills.stream().map(bill -> toBillDto(bill)).collect(Collectors.toSet());
+    }
+    public List<Baggage>baggages(List<BaggageDto>baggage){
+        return baggage.stream().map(this::toBaggageEntity).collect(Collectors.toList());
+    }
+    public List<BaggageDto>baggageDtoList(List<Baggage> baggages){
+        return baggages.stream().map(this::toBaggageDto).collect(Collectors.toList());
     }
 
 }

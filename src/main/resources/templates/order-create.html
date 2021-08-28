@@ -27,11 +27,10 @@
     }
 </style>
 
-<body>
+<div>
 
 <h1 class="text-center">Create Order</h1>
 <div class="container">
-
 
 
     <form action="/order-create" method="post" th:object="${order}">
@@ -54,7 +53,8 @@
         <div class="form group">
             <label for="delivery_time" class="control-label col-md-8"><strong>delivery_time</strong></label>
             <div class="col-md-4">
-                <input type="text" th:field="*{delivery_time}" name="delivery_time" class="form-control" id="delivery_time"
+                <input type="text" th:field="*{delivery_time}" name="delivery_time" class="form-control"
+                       id="delivery_time"
                        placeholder="Enter delivery_time">
             </div>
 
@@ -68,107 +68,17 @@
             </div>
         </div>
 
-        <form action="/baggage/add" method="post" th:object="${baggage}">
-            <div class="form group">
-                <label for="name_Baggage" class="control-label col-md-8"><strong>name_Baggage</strong></label>
-                <div class="col-md-4">
-                    <input type="text" th:field="*{name_Baggage}" name="name_Baggage" class="form-control" id="name_Baggage"
-                           placeholder="name_Baggage">
-                </div>
-            </div>
-            <div class="form group">
-                <label for="height" class="control-label col-md-8"><strong>Height</strong></label>
-                <div class="col-md-4">
-                    <input type="text" th:field="*{height}" name="height" class="form-control" id="height"
-                           placeholder="Enter Height">
-                </div>
-            </div>
-
-            <div class="form group">
-                <label for="weight" class="control-label col-md-8"><strong>Weight</strong></label>
-                <div class="col-md-4">
-                    <input type="text" th:field="*{weight}" name=weight class="form-control" id="weight"
-                           placeholder="Enter Weight">
-
-                </div>
-            </div>
-            <div class="form group">
-                <label for="length" class="control-label col-md-8"><strong>Length</strong></label>
-                <div class="col-md-4">
-                    <input type="text" th:field="*{length}" name="length" class="form-control" id="length"
-                           placeholder="Enter Length">
-                </div>
-            </div>
-            <div class="form group">
-                <label for="width" class="control-label col-md-8"><strong>Width</strong></label>
-                <div class="col-md-4">
-                    <input type="text" th:field="*{width}" name="width" class="form-control" id="width"
-                           placeholder="Enter Width">
-                </div>
-            </div>
+        <th><a type="button" class="btn btn-success btn-lg mx-1" th:href="@{/baggage/add}"><img
+                src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>CREATE Baggage</a></th>
+        <th><a type="button" class="btn btn-success btn-lg mx-1" th:href="@{/routes-create}"><img
+                src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>CREATE Routes</a></th>
 
 
+                       <button class="btn btn-primary" type="submit">Add</button>
+</form>
 
-
-        <form action="/routes-create" method="post" th:object="${routes}">
-            <div class="form group">
-                <label for="number" class="control-label col-md-8"><strong>number</strong></label>
-                <div class="col-md-4">
-                    <input type="text" th:field="*{number}" name="number" class="form-control" id="number"
-                           placeholder="Enter number">
-                </div>
-            </div>
-
-
-
-
-            <div class="form group">
-                <label class="control-label col-md-8"><strong>fromAddress</strong></label>
-                <div class="col-md-4">
-                    <input type="text" th:field="*{fromAddress.city}" name=fromAddress class="form-control" id="city"
-                           placeholder=" Enter city">
-                    <input type="text" th:field="*{fromAddress.street}" name=fromAddress class="form-control" id="street"
-                           placeholder=" Enter street">
-                    <input type="text" th:field="*{fromAddress.numberBranch}" name=fromAddress class="form-control" id="numberBranch"
-                           placeholder=" Enter numberBranch">
-
-                </div>
-            </div>
-            <div class="form group">
-                <label class="control-label col-md-8"><strong>toAddress</strong></label>
-                <div class="col-md-4">
-                    <input type="text" th:field="*{toAddress.city}" name=fromAddress class="form-control" id="cities"
-                           placeholder=" Enter city">
-                    <input type="text" th:field="*{toAddress.street}" name=fromAddress class="form-control" id="streets"
-                           placeholder=" Enter street">
-                    <input type="text" th:field="*{toAddress.numberBranch}" name=fromAddress class="form-control" id="numberBranchs"
-                           placeholder=" Enter numberBranch">
-
-                </div>
-            </div>
-            <div class="form group">
-                <label for="distance" class="control-label col-md-8"><strong>distance</strong></label>
-                <div class="col-md-4">
-                    <input type="text" th:field="*{distance}" name="distance" class="form-control" id="distance"
-                           placeholder="Enter distance">
-                </div>
-            </div>
-            <div class="form group">
-                <label for="duration" class="control-label col-md-8"><strong>duration</strong></label>
-                <div class="col-md-4">
-                    <input type="text" th:field="*{duration}" name="duration" class="form-control" id="duration"
-                           placeholder="Enter duration">
-                </div>
-            </div>
-
-
-
-        </form>
-
-
-        <button class="btn btn-primary" type="submit">Add</button>
-    </form>
-
+</div>
 </div>
 
 </body>
+</html>

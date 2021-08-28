@@ -3,6 +3,7 @@ package com.delivery;
 import com.delivery.domain.*;
 
 import com.delivery.respositories.AddressRepository;
+import com.delivery.respositories.DeliveryCardRepository;
 import com.delivery.respositories.RoleRepository;
 import com.delivery.respositories.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.stereotype.Component;
 import javax.annotation.Resource;
 import java.util.ArrayList;
 import java.util.HashSet;
+import java.util.List;
 import java.util.TreeSet;
 
 
@@ -34,6 +36,11 @@ public class DeliveryApplication {
         RoleRepository roleRepository;
         @Autowired
         AddressRepository addressRepository;
+
+        @Autowired
+        DeliveryCardRepository deliveryCardRepository;
+
+
         @Resource
         BCryptPasswordEncoder bCryptPasswordEncoder;
 
@@ -49,17 +56,25 @@ public class DeliveryApplication {
             Address address = new Address(0, "Dnepr", "Nmaar", 2);
             addressRepository.save(address);
 
-            User user = new User(0, "Sidorov", "Petr", "380664123587", "ivanov@gmail.com", bCryptPasswordEncoder.encode("123"), new ArrayList<>(), address, new TreeSet<>(),new HashSet<>());
+            DeliveryCard deliveryCard = new DeliveryCard();
+            deliveryCardRepository.save(deliveryCard);
+
+
+            User user = new User(0, "Sidorov", "Petr", "380664123587", "sidorov@gmail.com", bCryptPasswordEncoder.encode("123"), new ArrayList<>(), address,new TreeSet<>(),new HashSet<>());
             user = userRepository.save(user);
             user.getRoles().add(role);
+            System.out.println(user);
             userRepository.save(user);
 
 
             Address address1 = new Address(0, "Dnepr", "cdfdf", 3);
             addressRepository.save(address1);
 
+            DeliveryCard deliveryCard1= new DeliveryCard();
+            deliveryCardRepository.save(deliveryCard1);
 
-            User user1 = new User(0, "Vitko", "Eduard", "97665555", "eduardvitko@gmail.com", bCryptPasswordEncoder.encode("test"), new ArrayList<>(), address1, new TreeSet<>(), new HashSet<>());
+
+            User user1 = new User(0, "Vitko", "Eduard", "97665555", "eduardvitko@gmail.com", bCryptPasswordEncoder.encode("test"), new ArrayList<>(), address1,new TreeSet<>(),new HashSet<>());
             user1 = userRepository.save(user1);
             user1.getRoles().add(role2);
             userRepository.save(user1);

@@ -23,18 +23,19 @@ public class Order {
     @Column(nullable = false)
     private int numberOrder;
 
-    @OneToMany
-    private List<Baggage> baggages;
-
     @Column(nullable = false)
     private double order_price;
-
-    @OneToOne
-    private Routes route;
 
     @Column(nullable = false)
     private LocalDateTime shippet_time;
 
     @Column(nullable = false)
     private LocalDateTime delivery_time;
+
+    @OneToMany
+    private List<Baggage> baggages;
+
+    @OneToOne
+    private Routes route;
+
 }
