@@ -13,7 +13,7 @@ public class PageConfig implements WebMvcConfigurer {
         registry.addViewController("/address/delete").setViewName("address-delete");
         registry.addViewController("update/address-form").setViewName("address-update");
 
-        registry.addViewController("/baggage").setViewName("baggage");
+        registry.addViewController("/baggage/all").setViewName("baggage");
         registry.addViewController("baggage-create").setViewName("baggage-create");
         registry.addViewController("/baggage/delete").setViewName("baggage-delete");
         registry.addViewController("/baggage/update-form").setViewName("update-baggage");
@@ -30,6 +30,7 @@ public class PageConfig implements WebMvcConfigurer {
         registry.addViewController("/order-create").setViewName("order-create");
         registry.addViewController("/routes-create").setViewName("routes-create");
         registry.addViewController("/all-routes").setViewName("all-routes");
+        registry.addViewController("/deliveryCard").setViewName("deliveryCard");
 
 
 

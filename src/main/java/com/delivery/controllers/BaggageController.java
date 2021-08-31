@@ -15,6 +15,7 @@ import org.springframework.web.servlet.ModelAndView;
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
 
 @Controller
 public class BaggageController {
@@ -27,8 +28,8 @@ public class BaggageController {
     @GetMapping(value = "/baggage/all")
     public ModelAndView baggageFindAll() {
         ModelAndView modelAndView = new ModelAndView("baggage");
-        List<Baggage> baggageList = baggageService.baggageFindAll();
-        modelAndView.addObject("baggageList", baggageList);
+        Set<Baggage> baggageList = baggageService.baggageFindAll();
+        modelAndView.addObject("baggageSet",baggageList);
         return modelAndView;
     }
 

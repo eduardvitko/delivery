@@ -27,9 +27,10 @@ public class BusinessMapper {
                 .setLastName(user.getLastName())
                 .setPassword(user.getPassword())
                 .setAddressDto(user.getAddress())
-                //.setUserCabinet(toPersonCabinetDto(user.getUserCabinet()))
-                .setRoles(user.getRoles().stream().map(r -> toRoleDto(r)).collect(Collectors.toList()));
-              // .setBillDtos(user.getBills().stream().map(this::toBillDto).collect(Collectors.toSet()));
+                .setRoles(user.getRoles().stream().map(r -> toRoleDto(r)).collect(Collectors.toList()))
+                .setBillDtos(user.getBills().stream().map(this::toBillDto).collect(Collectors.toSet()))
+               .setOrderDtos(user.getOrders().stream().map(this::toOrderDto).collect(Collectors.toSet()))
+                .setDeliveryCardDto(toDeliveryCardDto(user.getDeliveryCard()));
 
     }
 
@@ -45,8 +46,9 @@ public class BusinessMapper {
                 .setPhoneNumber(user.getPhoneNumber())
                 .setAddress(toAddressEntity(user.getAddressDto()))
                 .setRoles(user.getRoles().stream().map(roleDto -> roleRepository.findByRole(roleDto.getRole())).collect(Collectors.toList()))
-              .setBills(user.getBillDtos().stream().map(this::toBillEntity).collect(Collectors.toSet()))
-                .setOrders(user.getOrderDtos().stream().map(this::toOrderEntity).collect(Collectors.toSet()));
+                .setBills(user.getBillDtos().stream().map(this::toBillEntity).collect(Collectors.toSet()))
+                .setOrders(user.getOrderDtos().stream().map(this::toOrderEntity).collect(Collectors.toSet()))
+                .setDeliveryCard(toDeliveryCardEntity(user.getDeliveryCardDto()));
 
 
     }
@@ -108,13 +110,14 @@ public class BusinessMapper {
 //        return baggageList;
 //    }
 
-    public DeliveryCard toDeliveryCardEntity(DeliveryCardDto cardDto){
+    public DeliveryCard toDeliveryCardEntity(DeliveryCardDto cardDto) {
         return new DeliveryCard()
                 .setId(cardDto.getId())
                 .setBaggages(baggages(cardDto.getBaggageDtos()));
     }
-    public DeliveryCardDto deliveryCardDto(DeliveryCard card){
-        return  new DeliveryCardDto()
+
+    public DeliveryCardDto toDeliveryCardDto(DeliveryCard card) {
+        return new DeliveryCardDto()
                 .setId(card.getId())
                 .setBaggageDtos(baggageDtoList(card.getBaggages()));
     }
@@ -255,7 +258,8 @@ public class BusinessMapper {
                 .setEmail(userSignUpRequest.getEmail())
                 .setAddressDto(new AddressDto(0, "", "", 0))
                 .setBillDtos(new TreeSet<>())
-                .setOrderDtos(new TreeSet<>());
+                .setOrderDtos(new TreeSet<>())
+                .setDeliveryCardDto(new DeliveryCardDto());
 
     }
 
@@ -271,11 +275,13 @@ public class BusinessMapper {
     public Set<BillDto> billDtoList(Set<Bill> bills) {
         return bills.stream().map(bill -> toBillDto(bill)).collect(Collectors.toSet());
     }
-    public List<Baggage>baggages(List<BaggageDto>baggage){
-        return baggage.stream().map(this::toBaggageEntity).collect(Collectors.toList());
+
+    public Set<Baggage> baggages(Set<BaggageDto> baggage) {
+        return baggage.stream().map(this::toBaggageEntity).collect(Collectors.toSet());
     }
-    public List<BaggageDto>baggageDtoList(List<Baggage> baggages){
-        return baggages.stream().map(this::toBaggageDto).collect(Collectors.toList());
+
+    public Set<BaggageDto> baggageDtoList(Set<Baggage> baggages) {
+        return baggages.stream().map(this::toBaggageDto).collect(Collectors.toSet());
     }
 
 }

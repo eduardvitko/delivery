@@ -29,18 +29,22 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @ManyToMany(cascade=CascadeType.ALL,fetch=FetchType.EAGER)
-    @JoinTable(name="user_roles", joinColumns = {@JoinColumn(name="user_id", referencedColumnName="id")},
-            inverseJoinColumns = {@JoinColumn(name="role_id", referencedColumnName="id")}
+    @ManyToMany(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
+    @JoinTable(name = "user_roles", joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
+            inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")}
     )
     private List<Role> roles;
 
     @OneToOne
     private Address address;
 
-   @OneToMany
-   private Set<Bill> bills;
+    @OneToMany(fetch = FetchType.EAGER)
+    private Set<Bill> bills;
 
-    @OneToMany
-   private Set<Order> orders;
+    @OneToMany(fetch = FetchType.EAGER)
+    private Set<Order> orders;
+
+    @OneToOne
+    private DeliveryCard deliveryCard;
+
 }

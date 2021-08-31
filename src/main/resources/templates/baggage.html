@@ -56,7 +56,7 @@
 
 
             <tbody>
-            <tr th:each="baggage: ${baggageList}">
+            <tr th:each="baggage: ${baggageSet}">
             <td><input type="checkbox"  id="checkbox" th:text="${baggage.name_Baggage}"></td>
             <td th:text="${baggage.height}"></td>
             <td th:text="${baggage.weight}"></td>
@@ -64,14 +64,16 @@
             <td th:text="${baggage.width}"></td>
                 <td><a type="button" th:href="@{/baggage/update/{id}(id=${baggage.b_id})}" class="btn btn-primary btn-sm mx-1"><img src="https://img.icons8.com/ios-filled/24/000000/edit--v2.png"/>Edit</a>
                     <a th:href="@{/baggage/delete/{id}(id=${baggage.b_id})}"class="btn btn-danger btn-sm mx-1"><img src="https://img.icons8.com/color/24/000000/delete-sign--v1.png"/>Delete</a></td>
-
+<!--                <th><a type="button" class="btn btn-warning btn-lg mx-1" th:href="@{}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>Add Baggage to Delivery Card</a></th>-->
 
 
         </tr>
 
         </tbody>
-            <th><a type="button" class="btn btn-warning btn-lg mx-1" th:href="@{/order-create}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>ORDER</a></th>
-    </table>
+
+
+        </table>
+
 
 </div>
 </body>

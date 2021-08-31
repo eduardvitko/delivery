@@ -1,10 +1,14 @@
 package com.delivery.controllers;
 
 
+import com.delivery.domain.Baggage;
+import com.delivery.domain.DeliveryCard;
 import com.delivery.domain.User;
 import com.delivery.dto.UserDto;
 import com.delivery.dto.UserSignIn;
 import com.delivery.dto.UserSignUpRequest;
+import com.delivery.respositories.BaggageRepository;
+import com.delivery.services.BaggageService;
 import com.delivery.services.UserService;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
@@ -17,12 +21,16 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Controller
 
 public class UserController {
     @Resource
     UserService userService;
+
+
+
 
     @GetMapping(value = "/registration-form")
     public ModelAndView showRegistrationForm() {
@@ -47,6 +55,7 @@ public class UserController {
         return modelAndView;
 
     }
+
 
     @GetMapping(value = "/user-all")
     public ModelAndView usersAll() {
@@ -99,6 +108,11 @@ public class UserController {
         ModelAndView modelAndView = new ModelAndView("navigation");
         return modelAndView;
     }
+
+
+
+
+
 
 
 }

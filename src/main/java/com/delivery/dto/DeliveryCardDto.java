@@ -4,6 +4,8 @@ import lombok.*;
 import lombok.experimental.Accessors;
 
 import java.util.List;
+import java.util.Set;
+
 @Data
 @Setter
 @Getter
@@ -12,7 +14,7 @@ import java.util.List;
 @Accessors(chain = true)
 public class DeliveryCardDto {
     private  int id;
-    private List<BaggageDto> baggageDtos;
+    private Set<BaggageDto> baggageDtos;
 
 
 }

@@ -43,10 +43,10 @@
         <thead class="thead-light">
         <tr>
             <th>id</th>
-            <th>Baggages </th>
+          //  <th>Baggages </th>
 
 
-            <th><a type="button" class="btn btn-success btn-lg mx-1" th:href="@{/baggage/add}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>CREATE</a></th>
+<!--            <th><a type="button" class="btn btn-success btn-lg mx-1" th:href="@{}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>Add Baggage to Delivery Card</a></th>-->
 
         </tr>
         </thead>
@@ -57,7 +57,7 @@
         <tr th:each="deliveryCard: ${deliveryCard}">
 
             <td th:text="${deliveryCard.id}"></td>
-            <td th:text="${deliveryCard.baggages}"></td>
+           // <td th:text="${deliveryCard.baggages}"></td>
 
 
 
@@ -66,7 +66,7 @@
         </tr>
 
         </tbody>
-        <th><a type="button" class="btn btn-warning btn-lg mx-1" th:href="@{/baggage-create}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>add Baggage</a></th>
+        <th><a type="button" class="btn btn-warning btn-lg mx-1" th:href="@{/baggage/add}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>add Baggage</a></th>
     </table>
 
 </div>

@@ -60,7 +60,7 @@ public class DeliveryApplication {
             deliveryCardRepository.save(deliveryCard);
 
 
-            User user = new User(0, "Sidorov", "Petr", "380664123587", "sidorov@gmail.com", bCryptPasswordEncoder.encode("123"), new ArrayList<>(), address,new TreeSet<>(),new HashSet<>());
+            User user = new User(0, "Sidorov", "Petr", "380664123587", "sidorov@gmail.com", bCryptPasswordEncoder.encode("123"), new ArrayList<>(), address,new TreeSet<>(),new HashSet<>(),deliveryCard);
             user = userRepository.save(user);
             user.getRoles().add(role);
             System.out.println(user);
@@ -74,7 +74,7 @@ public class DeliveryApplication {
             deliveryCardRepository.save(deliveryCard1);
 
 
-            User user1 = new User(0, "Vitko", "Eduard", "97665555", "eduardvitko@gmail.com", bCryptPasswordEncoder.encode("test"), new ArrayList<>(), address1,new TreeSet<>(),new HashSet<>());
+            User user1 = new User(0, "Vitko", "Eduard", "97665555", "eduardvitko@gmail.com", bCryptPasswordEncoder.encode("test"), new ArrayList<>(), address1,new TreeSet<>(),new HashSet<>(),deliveryCard1);
             user1 = userRepository.save(user1);
             user1.getRoles().add(role2);
             userRepository.save(user1);

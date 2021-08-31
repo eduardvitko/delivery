@@ -7,6 +7,8 @@ import org.springframework.stereotype.Service;
 import javax.annotation.Resource;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+import java.util.stream.Collectors;
 
 @Service
 public class BaggageServiceImp implements BaggageService {
@@ -33,8 +35,8 @@ baggageRepository.deleteById(id);
     }
 
     @Override
-    public List<Baggage> baggageFindAll() {
-        return baggageRepository.findAll();
+    public Set<Baggage> baggageFindAll() {
+        return baggageRepository.findAll().stream().collect(Collectors.toSet());
     }
 
     @Override

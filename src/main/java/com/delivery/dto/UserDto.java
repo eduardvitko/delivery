@@ -13,9 +13,9 @@ import java.util.Set;
 @Data
 @Getter
 @Setter
-@Accessors(chain = true)
 @AllArgsConstructor
 @NoArgsConstructor
+@Accessors(chain = true)
 public class UserDto {
 
     private int id;
@@ -35,6 +35,8 @@ public class UserDto {
 
     private Set<BillDto> billDtos;
     private Set<OrderDto> orderDtos;
+
+    private DeliveryCardDto deliveryCardDto;
 
 
 }

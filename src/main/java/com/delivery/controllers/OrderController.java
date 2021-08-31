@@ -43,19 +43,19 @@ public class OrderController {
         orderService.createOrder(order);
         return "redirect:/personalCabinet";
     }
-    @GetMapping(value = "/baggage-create")
-    public ModelAndView createBaggagesPage(Baggage baggage){
-        ModelAndView modelAndView = new ModelAndView("deliveryCard");
-        modelAndView.addObject("baggageList",new Baggage());
-        return modelAndView;
-
-    }
-    @PostMapping(value = "/baggage-create")
-    public String createBaggages(@ModelAttribute Baggage baggage){
-        baggageService.createBaggage(baggage);
-        return "redirect:/deliveryCard";
-
-    }
+//    @GetMapping(value = "/baggage-create")
+//    public ModelAndView createBaggagesPage(Baggage baggage){
+//        ModelAndView modelAndView = new ModelAndView("deliveryCard");
+//        modelAndView.addObject("baggageList",new Baggage());
+//        return modelAndView;
+//
+//    }
+//    @PostMapping(value = "/baggage-create")
+//    public String createBaggages(@ModelAttribute Baggage baggage){
+//        baggageService.createBaggage(baggage);
+//        return "redirect:/deliveryCard";
+//
+//    }
 
     @GetMapping(value = "/deliveryCard")
     public ModelAndView deliveryCardPage(DeliveryCard deliveryCard){{
@@ -65,11 +65,7 @@ public class OrderController {
     }
 
     }
-    @PostMapping(value = "/deliveryCard")
-   public String deliveryCardCreate(@ModelAttribute DeliveryCard deliveryCard){
-        deliveryCardService.createDeliveryCard(deliveryCard);
-        return "redirect:/deliveryCard";
-    }
+
 
 
 
