@@ -28,7 +28,7 @@ public class BaggageController {
     @GetMapping(value = "/baggage/all")
     public ModelAndView baggageFindAll() {
         ModelAndView modelAndView = new ModelAndView("baggage");
-        Set<Baggage> baggageList = baggageService.baggageFindAll();
+        List<Baggage> baggageList = baggageService.baggageFindAll();
         modelAndView.addObject("baggageSet",baggageList);
         return modelAndView;
     }

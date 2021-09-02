@@ -29,8 +29,8 @@ public class BusinessMapper {
                 .setAddressDto(user.getAddress())
                 .setRoles(user.getRoles().stream().map(r -> toRoleDto(r)).collect(Collectors.toList()))
                 .setBillDtos(user.getBills().stream().map(this::toBillDto).collect(Collectors.toSet()))
-               .setOrderDtos(user.getOrders().stream().map(this::toOrderDto).collect(Collectors.toSet()))
-                .setDeliveryCardDto(toDeliveryCardDto(user.getDeliveryCard()));
+               .setOrderDtos(user.getOrders().stream().map(this::toOrderDto).collect(Collectors.toSet()));
+               // .setDeliveryCardDto(toDeliveryCardDto(user.getDeliveryCard()));
 
     }
 
@@ -47,8 +47,8 @@ public class BusinessMapper {
                 .setAddress(toAddressEntity(user.getAddressDto()))
                 .setRoles(user.getRoles().stream().map(roleDto -> roleRepository.findByRole(roleDto.getRole())).collect(Collectors.toList()))
                 .setBills(user.getBillDtos().stream().map(this::toBillEntity).collect(Collectors.toSet()))
-                .setOrders(user.getOrderDtos().stream().map(this::toOrderEntity).collect(Collectors.toSet()))
-                .setDeliveryCard(toDeliveryCardEntity(user.getDeliveryCardDto()));
+                .setOrders(user.getOrderDtos().stream().map(this::toOrderEntity).collect(Collectors.toSet()));
+               //.setDeliveryCard(toDeliveryCardEntity(user.getDeliveryCardDto()));
 
 
     }

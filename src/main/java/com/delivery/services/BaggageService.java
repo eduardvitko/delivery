@@ -9,7 +9,7 @@ import java.util.Set;
 
 @Service
 public interface BaggageService {
-  Set<Baggage> baggageFindAll();
+  List<Baggage> baggageFindAll();
    Baggage createBaggage(Baggage baggage);
     void deleteById(int id);
    Baggage updateBaggage(Baggage baggage);

@@ -35,8 +35,8 @@ baggageRepository.deleteById(id);
     }
 
     @Override
-    public Set<Baggage> baggageFindAll() {
-        return baggageRepository.findAll().stream().collect(Collectors.toSet());
+    public List<Baggage> baggageFindAll() {
+        return baggageRepository.findAll();
     }
 
     @Override
