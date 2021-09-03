@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -66,6 +67,15 @@ public class OrderController {
         return "redirect:/deliveryCard-all";
 
 
+    }
+
+    @GetMapping("/update-deliveryCard")
+    public String showEditForm() {
+        Set<Baggage> baggageSet = new HashSet<>();
+        baggageService.baggageFindAll().iterator().forEachRemaining(baggageSet::add);
+        ModelAndView modelAndView = new ModelAndView();
+        modelAndView.addObject("form", new BaggageCreationDto(baggageSet));
+        return "update-deliveryCard";
     }
 
 }

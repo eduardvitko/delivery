@@ -5,6 +5,7 @@ import lombok.experimental.Accessors;
 
 import java.util.List;
 import java.util.Set;
+import java.util.TreeSet;
 
 @Data
 @Setter
@@ -15,7 +16,7 @@ import java.util.Set;
 public class DeliveryCardDto {
 
     private  int id;
-    private Set<BaggageDto> baggageDtos;
+    private Set<BaggageDto> baggageDtos = new TreeSet<>();
 
 
 }

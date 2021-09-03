@@ -1,0 +1,100 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout">
+
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Create Baggage</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+          integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+            integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"
+            integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy"
+            crossorigin="anonymous"></script>
+</head>
+<style>
+    body {
+        background-color: grey;
+    }
+</style>
+
+<body>
+
+<h1 class="text-center">DeliveryCard</h1>
+<div class="container">
+
+    <table class="table table-hover table-sm">
+        <thead class="thead-light">
+        <tr>
+
+<!--            <th>id</th>-->
+            <th>name_Baggage</th>
+            <th>width</th>
+            <th>length</th>
+            <th>weight</th>
+            <th>height </th>
+<!--            <th><a type="button" class="btn btn-success btn-lg mx-1" th:href="@{/baggage/add}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>CREATE</a></th>-->
+
+        </tr>
+        </thead>
+
+
+
+        <tbody>
+
+
+        <tr  th:each="baggage, itemStat : ${form.baggageSet}">
+<!--            <td>-->
+<!--                <input hidden th:name="|baggage[${itemStat.index}].id|" th:value="${baggage.getB_id()}"/>-->
+<!--            </td>-->
+            <td>
+                <input th:name="|baggage[${itemStat.index}].name_Baggage|" th:value="${baggage.getName_Baggage()}"/>
+            </td>
+            <td>
+                <input th:name="|baggage[${itemStat.index}].wigth|" th:value="${baggage.getWidth()}"/>
+            </td>
+            <td>
+                <input th:name="|baggage[${itemStat.index}].length|" th:value="${baggage.getLength()}"/>
+            </td>
+            <td>
+                <input th:name="|baggage[${itemStat.index}].weight|" th:value="${baggage.getWeight()}"/>
+            </td>
+            <td>
+                <input th:name="|baggage[${itemStat.index}].height|" th:value="${baggage.getHeight()}"/>
+            </td>
+        </tr>
+
+
+
+
+<!--            <td><a type="button" th:href="@{/baggage/update/{id}(id=${baggage.b_id})}" class="btn btn-primary btn-sm mx-1"><img src="https://img.icons8.com/ios-filled/24/000000/edit&#45;&#45;v2.png"/>Edit</a>-->
+<!--                <a th:href="@{/baggage/delete/{id}(id=${baggage.b_id})}"class="btn btn-danger btn-sm mx-1"><img src="https://img.icons8.com/color/24/000000/delete-sign&#45;&#45;v1.png"/>Delete</a></td>-->
+<!--            <th><a type="button" class="btn btn-warning btn-lg mx-1" th:href="@{/deliveryCard/update/{id}}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>Add Baggage to Delivery Card</a></th>-->
+
+
+        </tr>
+
+        </tbody>
+
+
+    </table>
+
+
+
+
+
+        <button class="btn btn-primary" type="submit">save</button>
+    </form>
+    </table>
+</div>
+
+</body>

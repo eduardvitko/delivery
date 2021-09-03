@@ -11,6 +11,7 @@ import com.delivery.exeption.ExceptionType;
 import com.delivery.maper.BusinessMapper;
 import com.delivery.respositories.AddressRepository;
 //import com.delivery.respositories.PersonalCabinetRepository;
+import com.delivery.respositories.DeliveryCardRepository;
 import com.delivery.respositories.RoleRepository;
 import com.delivery.respositories.UserRepository;
 import org.modelmapper.ModelMapper;
@@ -43,16 +44,20 @@ public class UserServiesImpl implements UserService {
     @Autowired
     private AddressRepository addressRepository;
 
+   @Autowired
+    private DeliveryCardRepository cardRepository;
+
     @Override
     public UserDto signup(UserSignUpRequest userSignUpRequest) {
         UserDto userDto = businessMapper.toUserDto(userSignUpRequest);
         userDto.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
         userDto.getRoles().add(new RoleDto(0, "customer"));
-        //   userDto.setUserCabinet(new PersonalCabinetDTO(0, new ArrayList<>(), new TreeSet<>()));
+
 
         User currentUser = businessMapper.toUserEntity(userDto);
+
         addressRepository.save(currentUser.getAddress());
-        //  cabinetRepository.save(currentUser.getUserCabinet());
+        cardRepository.save(currentUser.getDeliveryCard());
 
         currentUser = userRepository.save(currentUser);
         System.out.println(currentUser);

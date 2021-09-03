@@ -3,13 +3,9 @@ package com.delivery.maper;
 import com.delivery.domain.*;
 import com.delivery.dto.*;
 import com.delivery.respositories.RoleRepository;
-import lombok.experimental.Accessors;
-import org.modelmapper.ModelMapper;
-import org.springframework.security.access.method.P;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
-import java.nio.file.AccessDeniedException;
 import java.util.*;
 import java.util.stream.Collectors;
 
@@ -92,12 +88,12 @@ public class BusinessMapper {
                 .setWeight(baggage.getWeight())
                 .setWidth(baggage.getWidth());
     }
-//    public List<BaggageDto> toBaggageDtoList(List<Baggage>baggages){
+//    public List<BaggageDto> toBaggageDtoList(List<Baggage>baggagesDtoToEntinies){
 //
 //        List<BaggageDto>baggageList = new ArrayList<>();
 //
-//        for (int i = 0; i< baggages.size(); i++) {
-//              baggageList.add(toBaggageDto(baggages.get(i)));
+//        for (int i = 0; i< baggagesDtoToEntinies.size(); i++) {
+//              baggageList.add(toBaggageDto(baggagesDtoToEntinies.get(i)));
 //        }
 //            return baggageList;
 //    }
@@ -113,7 +109,7 @@ public class BusinessMapper {
     public DeliveryCard toDeliveryCardEntity(DeliveryCardDto cardDto) {
         return new DeliveryCard()
                 .setId(cardDto.getId())
-                .setBaggages(baggages(cardDto.getBaggageDtos()));
+                .setBaggages(baggagesDtoToEntinies(cardDto.getBaggageDtos()));
     }
 
     public DeliveryCardDto toDeliveryCardDto(DeliveryCard card) {
@@ -276,7 +272,7 @@ public class BusinessMapper {
         return bills.stream().map(bill -> toBillDto(bill)).collect(Collectors.toSet());
     }
 
-    public Set<Baggage> baggages(Set<BaggageDto> baggage) {
+    public Set<Baggage> baggagesDtoToEntinies(Set<BaggageDto> baggage) {
         return baggage.stream().map(this::toBaggageEntity).collect(Collectors.toSet());
     }
 

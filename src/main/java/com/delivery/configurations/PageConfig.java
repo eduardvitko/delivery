@@ -31,6 +31,7 @@ public class PageConfig implements WebMvcConfigurer {
         registry.addViewController("/routes-create").setViewName("routes-create");
         registry.addViewController("/all-routes").setViewName("all-routes");
         registry.addViewController("/deliveryCard").setViewName("deliveryCard");
+        registry.addViewController("/update-deliveryCard").setViewName("update-deliveryCard");
 
 
 

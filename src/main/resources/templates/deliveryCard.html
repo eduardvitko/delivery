@@ -26,7 +26,7 @@
 </head>
 <style>
     body {
-        background-color:  ghostwhite;
+        background-color: ghostwhite;
     }
 </style>
 
@@ -34,39 +34,34 @@
 <div class="container bg-grey mt-5 p-3">
 
 
-
-
-
+    <h1>DeliveryCard</h1>
 
 
     <table class="table table-hover table-sm">
         <thead class="thead-light">
         <tr>
             <th>id</th>
-          //  <th>Baggages </th>
+            <th>Baggages</th>
 
 
-<!--            <th><a type="button" class="btn btn-success btn-lg mx-1" th:href="@{}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>Add Baggage to Delivery Card</a></th>-->
+            <!--            <th><a type="button" class="btn btn-success btn-lg mx-1" th:href="@{}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>Add Baggage to Delivery Card</a></th>-->
 
         </tr>
         </thead>
 
 
-
         <tbody>
-        <tr th:each="deliveryCard: ${deliveryCard}">
+        <tr th:each="deliveryCard: ${b}">
 
             <td th:text="${deliveryCard.id}"></td>
-           // <td th:text="${deliveryCard.baggages}"></td>
-
-
-
+            <td th:text="${deliveryCard.baggages}"></td>
 
 
         </tr>
 
         </tbody>
-        <th><a type="button" class="btn btn-warning btn-lg mx-1" th:href="@{/baggage/add}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>add Baggage</a></th>
+        <th><a type="button" class="btn btn-warning btn-lg mx-1" th:href="@{/baggage/add}"><img
+                src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>add Baggage</a></th>
     </table>
 
 </div>
