@@ -25,13 +25,13 @@ public class BaggageController {
     private BaggageRepository baggageRepository;
 
 
-    @GetMapping(value = "/baggage/all")
-    public ModelAndView baggageFindAll() {
-        ModelAndView modelAndView = new ModelAndView("baggage");
-        List<Baggage> baggageList = baggageService.baggageFindAll();
-        modelAndView.addObject("baggageSet",baggageList);
-        return modelAndView;
-    }
+//    @GetMapping(value = "/deliveryCard/baggage")
+//    public ModelAndView baggageFindAll() {
+//        ModelAndView modelAndView = new ModelAndView("baggage");
+//        Set<Baggage> baggageList = baggageService.baggageFindAll();
+//        modelAndView.addObject("baggageSet",baggageList);
+//        return modelAndView;
+//    }
 
     @GetMapping(value = "/baggage/add")
     public ModelAndView createBaggagePage(Baggage baggage) {
@@ -43,14 +43,14 @@ public class BaggageController {
     @PostMapping(value = "/baggage/add")
     public String createBaggage(@ModelAttribute Baggage baggage) {
         baggageService.createBaggage(baggage);
-        return "redirect:/baggage/all";
+        return "redirect:/deliveryCard";
     }
 
     @GetMapping(value = "/baggage/delete/{id}")
     public String deleteById(@PathVariable("id") int id) {
         ModelAndView modelAndView = new ModelAndView("baggage-delete");
         baggageService.deleteById(id);
-        return "redirect:/baggage/all";
+        return "redirect:/deliveryCard";
     }
 
     @GetMapping(value = "/baggage/update/{id}")
@@ -65,7 +65,7 @@ public class BaggageController {
     @PostMapping(value = "/baggage/update")
     public String updateBaggage(@ModelAttribute Baggage baggage) {
        baggageService.updateBaggage(baggage);
-        return "redirect:/baggage/all";
+        return "redirect:/deliveryCard";
 
 
     }
