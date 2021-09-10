@@ -255,7 +255,7 @@ public class BusinessMapper {
                 .setAddressDto(new AddressDto(0, "", "", 0))
                 .setBillDtos(new TreeSet<>())
                 .setOrderDtos(new TreeSet<>())
-                .setDeliveryCardDto(new DeliveryCardDto());
+                .setDeliveryCardDto(new DeliveryCardDto(0,new HashSet<>()));
 
     }
 

@@ -40,7 +40,7 @@
     <table class="table table-hover table-sm">
         <thead class="thead-light">
         <tr>
-
+            <th>id Card</th>
             <th>name_Baggage</th>
             <th>heiht</th>
             <th>weiht</th>
@@ -56,9 +56,13 @@
 
 
         <tbody>
+        <tr th:each="deliveryCard: ${deliveryCard}">
+
+        </tr>
         <tr th:each="baggage: ${baggageSet}">
 
 
+            <td th:text="${deliveryCard.id}"></td>
             <td th:text="${baggage.name_Baggage}"></td>
             <td th:text="${baggage.height}"></td>
             <td th:text="${baggage.weight}"></td>
@@ -67,6 +71,7 @@
             <td><a type="button" th:href="@{/baggage/update/{id}(id=${baggage.b_id})}" class="btn btn-primary btn-sm mx-1"><img src="https://img.icons8.com/ios-filled/24/000000/edit--v2.png"/>Edit</a>
                 <a th:href="@{/baggage/delete/{id}(id=${baggage.b_id})}"class="btn btn-danger btn-sm mx-1"><img src="https://img.icons8.com/color/24/000000/delete-sign--v1.png"/>Delete</a></td>
         </tr>
+
 
 
         </tbody>

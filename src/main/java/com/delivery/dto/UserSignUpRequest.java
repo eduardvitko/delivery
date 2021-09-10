@@ -1,5 +1,6 @@
 package com.delivery.dto;
 
+import com.delivery.domain.DeliveryCard;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -18,4 +19,6 @@ public class UserSignUpRequest {
     private String email;
     private String firstPassword;
     private String secondPassword;
+
+    private DeliveryCard deliveryCard;
 }

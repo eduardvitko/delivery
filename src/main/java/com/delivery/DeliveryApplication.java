@@ -56,7 +56,7 @@ public class DeliveryApplication {
             Address address = new Address(0, "Dnepr", "Nmaar", 2);
             addressRepository.save(address);
 
-            DeliveryCard deliveryCard = new DeliveryCard();
+            DeliveryCard deliveryCard = new DeliveryCard(0,new HashSet<>());
             deliveryCardRepository.save(deliveryCard);
 
 
@@ -70,7 +70,7 @@ public class DeliveryApplication {
             Address address1 = new Address(0, "Dnepr", "cdfdf", 3);
             addressRepository.save(address1);
 
-            DeliveryCard deliveryCard1= new DeliveryCard();
+            DeliveryCard deliveryCard1= new DeliveryCard(0,new HashSet<>());
             deliveryCardRepository.save(deliveryCard1);
 
 

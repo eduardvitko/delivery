@@ -1,16 +1,9 @@
 package com.delivery.controllers;
 
-import com.delivery.domain.Baggage;
-import com.delivery.domain.DeliveryCard;
-import com.delivery.domain.Order;
-import com.delivery.domain.Routes;
-import com.delivery.dto.BaggageDto;
-import com.delivery.dto.OrderDto;
-import com.delivery.dto.UserDto;
+import com.delivery.domain.*;
+import com.delivery.dto.BaggageCreationDto;
 import com.delivery.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.Authentication;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -20,8 +13,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import java.util.HashSet;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 @Controller
 
@@ -36,6 +29,7 @@ public class OrderController {
 
     @Autowired
     private DeliveryCardService deliveryCardService;
+
     @Autowired
     private UserService userService;
 
@@ -46,27 +40,33 @@ public class OrderController {
         return modelAndView;
     }
 
-
-    @GetMapping(value = "/deliveryCard/")
-    public ModelAndView deliveryCardPage(DeliveryCard deliveryCard) {
-            ModelAndView modelAndView = new ModelAndView("deliveryCard");
-            return modelAndView;
-
+    @PostMapping("/order-create")
+    public String createOrder(@ModelAttribute Order order, Baggage baggage, Routes routes) {
+        orderService.createOrder(order);
+        return "redirect:/personalCabinet";
     }
+//    @GetMapping(value = "/baggage-create")
+//    public ModelAndView createBaggagesPage(Baggage baggage){
+//        ModelAndView modelAndView = new ModelAndView("deliveryCard");
+//        modelAndView.addObject("baggageList",new Baggage());
+//        return modelAndView;
+//
+//    }
+//    @PostMapping(value = "/baggage-create")
+//    public String createBaggages(@ModelAttribute Baggage baggage){
+//        baggageService.createBaggage(baggage);
+//        return "redirect:/deliveryCard";
+//
+//    }
 
-
-
-
-
-
-
-    @PostMapping(value = "/deliveryCard")
-    public String createOrder(@ModelAttribute DeliveryCard deliveryCard, Set<BaggageDto> baggageDtoSet) {
-        baggageService.baggageFindAll().stream().collect(Collectors.toSet());
+    @GetMapping(value = "/deliveryCard")
+    public ModelAndView deliveryCardPage(DeliveryCard deliveryCard) {
+        ModelAndView modelAndView = new ModelAndView("deliveryCard");
+        modelAndView.addObject("deliveryCard", new DeliveryCard());
+        Set<Baggage> baggageList = baggageService.baggageFindAll();
+        modelAndView.addObject("baggageSet",baggageList);
         deliveryCardService.createDeliveryCard(deliveryCard);
-        return "redirect:/deliveryCard-all";
-
-
+        return modelAndView;
     }
 
     @GetMapping("/update-deliveryCard")
@@ -78,11 +78,19 @@ public class OrderController {
         return "update-deliveryCard";
     }
 
+    @GetMapping(value = "/deliveryCard/update/{id}")
+    public ModelAndView updateDeliveryCard(@PathVariable("id") int id) {
+        DeliveryCard deliveryCard = deliveryCardService.readById(id);
+        ModelAndView modelAndView = new ModelAndView("update-deliveryCard");
+        modelAndView.addObject("deliveryCard", deliveryCard);
+        return modelAndView;
+    }
+
+    @PostMapping(value = "/deliveryCard/update")
+    public String updateDeliveryCardPage(@ModelAttribute DeliveryCard deliveryCard) {
+        deliveryCardService.updateDeliveryCard(deliveryCard);
+        return "redirect:/deliveryCard";
+    }
+
+
 }
-
-
-
-
-
-
-

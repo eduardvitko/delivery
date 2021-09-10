@@ -19,10 +19,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-import java.util.TreeSet;
+import java.util.*;
 
 import static com.delivery.exeption.EntityType.USER;
 import static com.delivery.exeption.ExceptionType.ENTITY_NOT_FOUND;
@@ -52,6 +49,7 @@ public class UserServiesImpl implements UserService {
         UserDto userDto = businessMapper.toUserDto(userSignUpRequest);
         userDto.setPassword(bCryptPasswordEncoder.encode(userDto.getPassword()));
         userDto.getRoles().add(new RoleDto(0, "customer"));
+        userDto.getDeliveryCardDto().setBaggageDtos(new HashSet<>());
 
 
         User currentUser = businessMapper.toUserEntity(userDto);
