@@ -20,5 +20,5 @@ public class UserSignUpRequest {
     private String firstPassword;
     private String secondPassword;
 
-    private DeliveryCard deliveryCard;
+
 }
