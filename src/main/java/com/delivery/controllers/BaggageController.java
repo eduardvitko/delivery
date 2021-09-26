@@ -2,8 +2,14 @@ package com.delivery.controllers;
 
 
 import com.delivery.domain.Baggage;
+import com.delivery.dto.BaggageDto;
+import com.delivery.dto.DeliveryCardDto;
+import com.delivery.dto.UserDto;
 import com.delivery.respositories.BaggageRepository;
 import com.delivery.services.BaggageService;
+import com.delivery.services.UserService;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,16 +19,17 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import java.util.List;
-import java.util.Optional;
-import java.util.Set;
+import java.util.*;
 
 @Controller
 public class BaggageController {
 
     @Resource
     private BaggageService baggageService;
+    @Resource
     private BaggageRepository baggageRepository;
+    @Resource
+    private UserService userService;
 
 
 //    @GetMapping(value = "/deliveryCard/baggage")
@@ -33,17 +40,21 @@ public class BaggageController {
 //        return modelAndView;
 //    }
 
-    @GetMapping(value = "/baggage/add")
-    public ModelAndView createBaggagePage(Baggage baggage) {
+    @GetMapping(value = "/baggage/add/user/{email}")
+    public ModelAndView createBaggagePage(@PathVariable("email") String email,Baggage baggage) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserDto userDto = userService.findUserByEmail(auth.getName());
         ModelAndView modelAndView = new ModelAndView("baggage-create");
         modelAndView.addObject("baggage", new Baggage());
         return modelAndView;
     }
 
     @PostMapping(value = "/baggage/add")
-    public String createBaggage(@ModelAttribute Baggage baggage) {
+    public String createBaggage(@PathVariable("email") String email,@ModelAttribute Baggage baggage) {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserDto userDto = userService.findUserByEmail(auth.getName());
         baggageService.createBaggage(baggage);
-        return "redirect:/deliveryCard";
+      return "redirect:/deliveryCard/user/{email}";
     }
 
     @GetMapping(value = "/baggage/delete/{id}")

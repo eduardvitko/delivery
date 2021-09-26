@@ -2,8 +2,13 @@ package com.delivery.controllers;
 
 import com.delivery.domain.*;
 import com.delivery.dto.BaggageCreationDto;
+import com.delivery.dto.DeliveryCardDto;
+import com.delivery.dto.UserDto;
+import com.delivery.respositories.UserRepository;
 import com.delivery.services.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -33,6 +38,9 @@ public class OrderController {
     @Autowired
     private UserService userService;
 
+    @Autowired
+    private UserRepository userRepository;
+
     @GetMapping(value = "/order-create")
     public ModelAndView createOrderPage(Order order) {
         ModelAndView modelAndView = new ModelAndView("order-create");
@@ -59,15 +67,19 @@ public class OrderController {
 //
 //    }
 
-    @GetMapping(value = "/deliveryCard")
-    public ModelAndView deliveryCardPage(DeliveryCard deliveryCard) {
+    @GetMapping(value = "/deliveryCard/user/{email}")
+    public ModelAndView deliveryCardPage(@PathVariable("email") String email) {
         ModelAndView modelAndView = new ModelAndView("deliveryCard");
-        modelAndView.addObject("deliveryCard", new DeliveryCard());
-        Set<Baggage> baggageList = baggageService.baggageFindAll();
-        modelAndView.addObject("baggageSet",baggageList);
-        deliveryCardService.createDeliveryCard(deliveryCard);
+//        UserDto userDto = userService.findUserByEmail(email);
+//        DeliveryCardDto deliveryCardDto= userDto.getDeliveryCardDto();
+//        modelAndView.addObject("deliveryCard",deliveryCardDto);
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        UserDto userDto = userService.findUserByEmail(auth.getName());
+        DeliveryCardDto deliveryCardDto = userDto.getDeliveryCardDto();
+        modelAndView.addObject("deliveryCard", deliveryCardDto);
         return modelAndView;
     }
+
 
     @GetMapping("/update-deliveryCard")
     public String showEditForm() {

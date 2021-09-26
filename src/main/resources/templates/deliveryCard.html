@@ -41,12 +41,13 @@
         <thead class="thead-light">
         <tr>
             <th>id Card</th>
+            <th>b_id</th>
             <th>name_Baggage</th>
             <th>heiht</th>
             <th>weiht</th>
             <th>lenght</th>
             <th>width</th>
-            <th><a type="button" class="btn btn-success btn-lg mx-1" th:href="@{/baggage/add}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>add Baggage</a></th>
+            <th><a type="button" class="btn btn-success btn-lg mx-1" th:href="@{/baggage/add/user/{email}}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>add Baggage</a></th>
             <th><a th:href="@{/personalCabinet}"class="btn btn-danger btn-sm mx-1"><img src="https://img.icons8.com/color/24/000000/delete-sign--v1.png"/>back to PersonalCabinet</a></th>
 
             <!--            <th><a type="button" class="btn btn-success btn-lg mx-1" th:href="@{}"><img src="https://img.icons8.com/cute-clipart/24/000000/add-file.png"/>Add Baggage to Delivery Card</a></th>-->
@@ -56,21 +57,21 @@
 
 
         <tbody>
-        <tr th:each="deliveryCard: ${deliveryCard}">
+
 
         </tr>
-        <tr th:each="baggage: ${baggageSet}">
+
+        <tr th:each="deliveryCard: ${deliveryCard}">
 
 
             <td th:text="${deliveryCard.id}"></td>
-            <td th:text="${baggage.name_Baggage}"></td>
-            <td th:text="${baggage.height}"></td>
-            <td th:text="${baggage.weight}"></td>
-            <td th:text="${baggage.length}"></td>
-            <td th:text="${baggage.width}"></td>
-            <td><a type="button" th:href="@{/baggage/update/{id}(id=${baggage.b_id})}" class="btn btn-primary btn-sm mx-1"><img src="https://img.icons8.com/ios-filled/24/000000/edit--v2.png"/>Edit</a>
-                <a th:href="@{/baggage/delete/{id}(id=${baggage.b_id})}"class="btn btn-danger btn-sm mx-1"><img src="https://img.icons8.com/color/24/000000/delete-sign--v1.png"/>Delete</a></td>
-        </tr>
+            <td th:text="${deliveryCard.baggageDtos}"></td>
+
+
+
+<!--            <td><a type="button" th:href="@{/baggage/update/{id}(id=${baggage.b_id})}" class="btn btn-primary btn-sm mx-1"><img src="https://img.icons8.com/ios-filled/24/000000/edit&#45;&#45;v2.png"/>Edit</a>-->
+<!--                <a th:href="@{/baggage/delete/{id}(id=${baggage.b_id})}"class="btn btn-danger btn-sm mx-1"><img src="https://img.icons8.com/color/24/000000/delete-sign&#45;&#45;v1.png"/>Delete</a></td>-->
+<!--        </tr>-->
 
 
 
